@@ -1,0 +1,362 @@
+/* General Body Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* App container */
+.App {
+  text-align: center;
+  color: #fff;
+  animation: fadeIn 2s ease-in-out;
+  padding-top: 50px;
+  background-size: cover; /* Ensure background covers the entire screen */
+  background-position: center; /* Center the background image */
+  transition: background-image 0.5s ease-in-out;
+  height: 100vh; /* Ensure the app container covers the full screen */
+}
+
+/* App header */
+.App-header {
+  position: relative;
+  z-index: 1;
+}
+
+/* Birthday surprise message styling */
+.birthday-surprise {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1);
+  animation: surpriseAnim 2s ease-out;
+}
+
+/* Text and animation styles */
+.birthday-title {
+  font-size: 45px;
+  font-weight: bold;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+  color: rgb(233, 230, 243);
+  animation: titleAnim 1.5s ease-in-out forwards; /* Added dynamic animation */
+}
+
+.birthday-message {
+  font-size: 24px;
+  margin-top: 20px;
+  font-style: italic;
+  color: hwb(48 71% 3%);
+  opacity: 0;
+  animation: messageAnim 2s ease-in-out forwards 1.5s; /* Added dynamic animation */
+}
+
+/* Animation for birthday title (Bounce effect) */
+@keyframes titleAnim {
+  0% {
+    transform: scale(0.5) translateY(-50px);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1) translateY(20px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animation for birthday message (Fade-in effect with slight delay) */
+@keyframes messageAnim {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Balloons animation */
+@keyframes balloonAnim {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50px) rotate(10deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0.1;
+  }
+}
+
+/* Balloons style */
+.balloons {
+  animation: balloonAnim 5s infinite ease-in-out;
+  font-size: 50px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* Confetti animation */
+@keyframes confettiAnim {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(150px) rotate(180deg);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(300px) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+/* Confetti style */
+.confetti {
+  animation: confettiAnim 3s infinite ease-in-out;
+  font-size: 50px;
+  display: inline-block;
+  margin-top: 10px;
+  position: absolute;
+  top: 0;
+  left: 68%;
+  transform: translateX(-50%);
+  pointer-events: none; /* To make sure the confetti doesn't interfere with other elements */
+}
+
+/* New buttons container */
+.new-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+/* Apply dark orange color and havoc effect for all buttons */
+button, .new-smoke-button, .new-cheers-button, .song-button {
+  background-color: #d94e23;
+  color: white;
+  font-size: 18px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.new-smoke-button, .new-cheers-button, .song-button {
+  width: 200px;
+}
+
+button:hover, .new-smoke-button:hover, .new-cheers-button:hover, .song-button:hover {
+  background-color: #bb3d19;
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Music section */
+section.music {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  color: #fff;
+}
+
+section.music h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+section.music ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+section.music li {
+  margin: 10px 0;
+}
+
+/* Smoke page styles */
+.smoke {
+  background: url('./smoking.jpeg') no-repeat center center;
+  background-size: 20% 45%;
+  height: 120vh; /* Ensure it fills the entire screen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden; /* To hide any smoke animation outside the bounds */
+}
+
+/* Smoke animation (created with pseudo-elements) */
+.smoke::after,
+.smoke::before {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.6); /* Semi-transparent white to simulate smoke */
+  border-radius: 50%;
+  opacity: 0.9;
+  z-index: 5;
+}
+
+.smoke::after {
+  top: 7%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  animation: driftSmoke 3s ease-in-out infinite; /* Drift animation for the smoke */
+}
+
+.smoke::before {
+  top: 7%;
+  left: 70%;
+  width: 120px;
+  height: 120px;
+  animation: driftSmoke 3s ease-in-out infinite; /* Drift animation for the smoke */
+}
+
+/* Smoking animation keyframes */
+@keyframes driftSmoke {
+  0% {
+    transform: translateX(0) translateY(0) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(80px) translateY(-30px) scale(1.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateX(160px) translateY(0) scale(1);
+    opacity: 0.05;
+  }
+}
+
+/* Smoke message styling */
+.smoke-message {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2px;
+  border-radius: 10px;
+  color: hsl(61, 44%, 82%);
+  font-size: 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0%; /* Adjusted from -80px to a more suitable value */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 500px;
+  z-index: 10;
+}
+
+/* Smoke line animation */
+.smoke-line {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInLine 1s forwards;
+}
+
+.smoke-line:nth-child(1) {
+  animation-delay: 0.5s; /* Delay for the first line */
+}
+.smoke-line:nth-child(2) {
+  animation-delay: 1s; /* Delay for the second line */
+}
+.smoke-line:nth-child(3) {
+  animation-delay: 1.5s; /* Delay for the third line */
+}
+.smoke-line:nth-child(4) {
+  animation-delay: 2s; /* Delay for the fourth line */
+}
+.smoke-line:nth-child(5) {
+  animation-delay: 2.5s; /* Delay for the fifth line */
+}
+.smoke-line:nth-child(6) {
+  animation-delay: 3s; /* Delay for the sixth line */
+}
+
+@keyframes fadeInLine {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cheers page styles */
+.cheers {
+  background: url('./Cheers.jpeg') no-repeat center center;
+  background-size: 20% 50%;
+  height: 100vh; /* Ensure it fills the entire screen */
+}
+
+/* Cheers message styling */
+.cheers-message {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px;
+  border-radius: 10px;
+  color: hsl(207, 68%, 84%);
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 2.2%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+/* Cheers line animation */
+.cheers-line {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInCheers 1s forwards;
+}
+
+.cheers-line:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.cheers-line:nth-child(2) {
+  animation-delay: 1s;
+}
+
+@keyframes fadeInCheers {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
